@@ -22,14 +22,44 @@
         }
 
         function getHumanChoice() {
-            let input = prompt("Enter your choice: 1.rock 2.paper 3.scissors");
-            if (input === "rock" || input === "1") {
+            let input = prompt("Enter the number of your choice: 1.rock 2.paper 3.scissors");
+            if (input === "1") {
                 return "rock";
-            } else if (input === "paper" || input === "2") {
+            } else if (input === "2") {
                 return "paper";
             }
-            else if (input === "scissors" || input === "3") {
+            else if (input === "3") {
                 return "scissors";
+            }
+            else {
+                return "not valid";
+            }
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                console.log("draw");
+
+            } else if (humanChoice === "rock" && computerChoice === "scissors") {
+                humanScore++;
+                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+
+            }
+            else if (humanChoice === "paper" && computerChoice === "rock") {
+                humanScore++;
+                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+
+            }
+            else if (humanChoice === "scissors" && computerChoice === "paper") {
+                humanScore++;
+                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+
+            }
+            else {
+                computerScore++;
+                console.log(`“You lose! ${computerChoice} beats ${humanChoice}”`);
             }
         }
     </script>
