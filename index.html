@@ -35,33 +35,47 @@
                 return "not valid";
             }
         }
-
         let humanScore = 0;
         let computerScore = 0;
         function playRound(humanChoice, computerChoice) {
             if (humanChoice === computerChoice) {
-                console.log("draw");
+                console.log("Draw");
 
             } else if (humanChoice === "rock" && computerChoice === "scissors") {
                 humanScore++;
-                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+                console.log(`You win round! ${humanChoice} beats ${computerChoice}`);
 
             }
             else if (humanChoice === "paper" && computerChoice === "rock") {
                 humanScore++;
-                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+                console.log(`You win round! ${humanChoice} beats ${computerChoice}`);
 
             }
             else if (humanChoice === "scissors" && computerChoice === "paper") {
                 humanScore++;
-                console.log(`“You win! ${humanChoice} beats ${computerChoice}”`);
+                console.log(`You win round! ${humanChoice} beats ${computerChoice}`);
 
             }
             else {
                 computerScore++;
-                console.log(`“You lose! ${computerChoice} beats ${humanChoice}”`);
+                console.log(`You lose the round! ${computerChoice} beats ${humanChoice}`);
             }
         }
+        function playGame() {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice();
+            playRound(humanSelection, computerSelection);
+        }
+
+        for (let index = 0; index < 5; index++) {
+            playGame();
+        }
+        let result = (humanScore > computerScore) ? `Your Win the game!` :
+            (humanScore < computerScore) ? `Computer Win the game!` :
+                `Draw`;
+        let finalResult = `Your Score: ${humanScore}, Computer Score: ${computerScore}
+        ${result}`;
+        console.log(finalResult);
     </script>
 </body>
 
